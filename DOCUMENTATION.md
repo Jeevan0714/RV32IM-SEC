@@ -153,8 +153,12 @@ All tools below are free and open-source.
 | Verilator | Lint RTL — catches errors before simulation | `sudo apt install verilator` |
 
 ```bash
-# Check a file for errors before simulating
-verilator --lint-only rtl/phase1_single_cycle/core/riscv_single_cycle.v
+# Lint all Phase 1 RTL files (include paths required for submodule resolution)
+verilator --lint-only \
+  -Irtl/phase1_single_cycle/core \
+  -Irtl/phase1_single_cycle/memory \
+  -Irtl/phase1_single_cycle/utils \
+  rtl/phase1_single_cycle/**/*.v
 ```
 
 ### Stage 2 — Simulation (Phases 1–4)
@@ -165,12 +169,27 @@ verilator --lint-only rtl/phase1_single_cycle/core/riscv_single_cycle.v
 | Spike | Golden RISC-V ISA simulator — verify your output is correct | build from source |
 
 ```bash
-# Simulate
-iverilog -o sim_out tb/phase1/tb_riscv_single_cycle.v rtl/...
-vvp sim_out
+# Compile Phase 1 simulation (creates sim/phase1/sim_out)
+mkdir -p sim/phase1
+iverilog -o sim/phase1/sim_out \
+  -Irtl/phase1_single_cycle/core \
+  -Irtl/phase1_single_cycle/memory \
+  -Irtl/phase1_single_cycle/utils \
+  tb/phase1/tb_riscv_single_cycle.v \
+  rtl/phase1_single_cycle/core/riscv_single_cycle.v \
+  rtl/phase1_single_cycle/core/control_unit.v \
+  rtl/phase1_single_cycle/core/alu_control.v \
+  rtl/phase1_single_cycle/memory/instr_mem.v \
+  rtl/phase1_single_cycle/memory/data_mem.v \
+  rtl/phase1_single_cycle/utils/alu.v \
+  rtl/phase1_single_cycle/utils/imm_gen.v \
+  rtl/phase1_single_cycle/utils/register_file.v
+
+# Run simulation (produces sim/phase1/tb_single_cycle.vcd)
+vvp sim/phase1/sim_out
 
 # Open waveform
-gtkwave sim/phase1/tb.vcd
+gtkwave sim/phase1/tb_single_cycle.vcd
 ```
 
 ### Stage 3 — Writing Test Programs (Phases 1–4)

@@ -63,6 +63,7 @@ always @(posedge clk) begin
                 mem[addr+2] <= wr_data[23:16];
                 mem[addr+3] <= wr_data[31:24];
             end
+            default: ; // No-op for unsupported funct3 values
         endcase
     end
 end

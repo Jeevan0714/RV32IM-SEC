@@ -22,8 +22,9 @@ initial begin
 end
 
 // ── Word-Aligned Read ────────────────────────────────────────
-// PC is byte-addressed, divide by 4 to get word index
-// [31:2] gives the word address (ignore bottom 2 bits)
-assign instr = mem[addr[31:2]];
+// PC is byte-addressed, divide by 4 to get word index.
+// addr[11:2] gives the 10-bit word index into 1024-entry memory
+// (addr[1:0] ignored — always 0 for aligned instructions)
+assign instr = mem[addr[11:2]];
 
 endmodule
