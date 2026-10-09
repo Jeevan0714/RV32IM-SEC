@@ -1,0 +1,280 @@
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _1963_ (removal check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     1.500    1.500 ^ input external delay
+2147.158    0.000    0.000    1.500 ^ rst_n (in)
+            0.000    0.000    1.500 ^ _1963_/RN (DFFR_X1)
+                              1.500   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ _1963_/CK (DFFR_X1)
+                     0.181    0.281   library removal time
+                              0.281   data required time
+---------------------------------------------------------------------------
+                              0.281   data required time
+                             -1.500   data arrival time
+---------------------------------------------------------------------------
+                              1.219   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _1964_ (removal check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     1.500    1.500 ^ input external delay
+2147.158    0.000    0.000    1.500 ^ rst_n (in)
+            0.000    0.000    1.500 ^ _1964_/RN (DFFR_X1)
+                              1.500   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ _1964_/CK (DFFR_X1)
+                     0.181    0.281   library removal time
+                              0.281   data required time
+---------------------------------------------------------------------------
+                              0.281   data required time
+                             -1.500   data arrival time
+---------------------------------------------------------------------------
+                              1.219   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _1965_ (removal check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     1.500    1.500 ^ input external delay
+2147.158    0.000    0.000    1.500 ^ rst_n (in)
+            0.000    0.000    1.500 ^ _1965_/RN (DFFR_X1)
+                              1.500   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ _1965_/CK (DFFR_X1)
+                     0.181    0.281   library removal time
+                              0.281   data required time
+---------------------------------------------------------------------------
+                              0.281   data required time
+                             -1.500   data arrival time
+---------------------------------------------------------------------------
+                              1.219   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _1966_ (removal check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     1.500    1.500 ^ input external delay
+2147.158    0.000    0.000    1.500 ^ rst_n (in)
+            0.000    0.000    1.500 ^ _1966_/RN (DFFR_X1)
+                              1.500   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ _1966_/CK (DFFR_X1)
+                     0.181    0.281   library removal time
+                              0.281   data required time
+---------------------------------------------------------------------------
+                              0.281   data required time
+                             -1.500   data arrival time
+---------------------------------------------------------------------------
+                              1.219   slack (MET)
+
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _1967_ (removal check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     1.500    1.500 ^ input external delay
+2147.158    0.000    0.000    1.500 ^ rst_n (in)
+            0.000    0.000    1.500 ^ _1967_/RN (DFFR_X1)
+                              1.500   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ _1967_/CK (DFFR_X1)
+                     0.181    0.281   library removal time
+                              0.281   data required time
+---------------------------------------------------------------------------
+                              0.281   data required time
+                             -1.500   data arrival time
+---------------------------------------------------------------------------
+                              1.219   slack (MET)
+
+
+Startpoint: u_pipe_EX_MEM/_110_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_pipe_MEM_WB/_105_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ u_pipe_EX_MEM/_110_/CK (DFFR_X1)
+   1.362    0.006    0.084    0.084 v u_pipe_EX_MEM/_110_/Q (DFFR_X1)
+            0.006    0.000    0.084 v u_pipe_MEM_WB/_105_/D (DFFR_X1)
+                              0.084   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ u_pipe_MEM_WB/_105_/CK (DFFR_X1)
+                     0.003    0.103   library hold time
+                              0.103   data required time
+---------------------------------------------------------------------------
+                              0.103   data required time
+                             -0.084   data arrival time
+---------------------------------------------------------------------------
+                             -0.019   slack (VIOLATED)
+
+
+Startpoint: u_pipe_EX_MEM/_111_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_pipe_MEM_WB/_106_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ u_pipe_EX_MEM/_111_/CK (DFFR_X1)
+   1.362    0.006    0.084    0.084 v u_pipe_EX_MEM/_111_/Q (DFFR_X1)
+            0.006    0.000    0.084 v u_pipe_MEM_WB/_106_/D (DFFR_X1)
+                              0.084   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ u_pipe_MEM_WB/_106_/CK (DFFR_X1)
+                     0.003    0.103   library hold time
+                              0.103   data required time
+---------------------------------------------------------------------------
+                              0.103   data required time
+                             -0.084   data arrival time
+---------------------------------------------------------------------------
+                             -0.019   slack (VIOLATED)
+
+
+Startpoint: u_pipe_EX_MEM/_186_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_pipe_MEM_WB/_176_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ u_pipe_EX_MEM/_186_/CK (DFFR_X1)
+   1.362    0.006    0.084    0.084 v u_pipe_EX_MEM/_186_/Q (DFFR_X1)
+            0.006    0.000    0.084 v u_pipe_MEM_WB/_176_/D (DFFR_X1)
+                              0.084   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ u_pipe_MEM_WB/_176_/CK (DFFR_X1)
+                     0.003    0.103   library hold time
+                              0.103   data required time
+---------------------------------------------------------------------------
+                              0.103   data required time
+                             -0.084   data arrival time
+---------------------------------------------------------------------------
+                             -0.019   slack (VIOLATED)
+
+
+Startpoint: u_pipe_EX_MEM/_187_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_pipe_MEM_WB/_177_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ u_pipe_EX_MEM/_187_/CK (DFFR_X1)
+   1.362    0.006    0.084    0.084 v u_pipe_EX_MEM/_187_/Q (DFFR_X1)
+            0.006    0.000    0.084 v u_pipe_MEM_WB/_177_/D (DFFR_X1)
+                              0.084   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ u_pipe_MEM_WB/_177_/CK (DFFR_X1)
+                     0.003    0.103   library hold time
+                              0.103   data required time
+---------------------------------------------------------------------------
+                              0.103   data required time
+                             -0.084   data arrival time
+---------------------------------------------------------------------------
+                             -0.019   slack (VIOLATED)
+
+
+Startpoint: u_pipe_EX_MEM/_188_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_pipe_MEM_WB/_178_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ u_pipe_EX_MEM/_188_/CK (DFFR_X1)
+   1.362    0.006    0.084    0.084 v u_pipe_EX_MEM/_188_/Q (DFFR_X1)
+            0.006    0.000    0.084 v u_pipe_MEM_WB/_178_/D (DFFR_X1)
+                              0.084   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ u_pipe_MEM_WB/_178_/CK (DFFR_X1)
+                     0.003    0.103   library hold time
+                              0.103   data required time
+---------------------------------------------------------------------------
+                              0.103   data required time
+                             -0.084   data arrival time
+---------------------------------------------------------------------------
+                             -0.019   slack (VIOLATED)
+
+

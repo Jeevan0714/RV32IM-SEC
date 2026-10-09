@@ -1,0 +1,160 @@
+Startpoint: lfsr_inst/_770_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: lfsr_inst/_778_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ lfsr_inst/_770_/CK (DFF_X1)
+   3.155    0.008    0.081    0.081 v lfsr_inst/_770_/Q (DFF_X1)
+            0.008    0.000    0.081 v lfsr_inst/_508_/A (INV_X1)
+   1.989    0.007    0.013    0.094 ^ lfsr_inst/_508_/ZN (INV_X1)
+            0.007    0.000    0.094 ^ lfsr_inst/_533_/C2 (AOI211_X1)
+   1.372    0.006    0.014    0.108 v lfsr_inst/_533_/ZN (AOI211_X1)
+            0.006    0.000    0.108 v lfsr_inst/_778_/D (DFF_X1)
+                              0.108   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ lfsr_inst/_778_/CK (DFF_X1)
+                     0.002    0.102   library hold time
+                              0.102   data required time
+---------------------------------------------------------------------------
+                              0.102   data required time
+                             -0.108   data arrival time
+---------------------------------------------------------------------------
+                              0.007   slack (MET)
+
+
+Startpoint: lfsr_inst/_774_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: lfsr_inst/_782_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ lfsr_inst/_774_/CK (DFF_X1)
+   3.155    0.008    0.081    0.081 v lfsr_inst/_774_/Q (DFF_X1)
+            0.008    0.000    0.081 v lfsr_inst/_506_/A (INV_X1)
+   1.989    0.007    0.013    0.094 ^ lfsr_inst/_506_/ZN (INV_X1)
+            0.007    0.000    0.094 ^ lfsr_inst/_541_/C2 (AOI211_X1)
+   1.372    0.006    0.014    0.108 v lfsr_inst/_541_/ZN (AOI211_X1)
+            0.006    0.000    0.108 v lfsr_inst/_782_/D (DFF_X1)
+                              0.108   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ lfsr_inst/_782_/CK (DFF_X1)
+                     0.002    0.102   library hold time
+                              0.102   data required time
+---------------------------------------------------------------------------
+                              0.102   data required time
+                             -0.108   data arrival time
+---------------------------------------------------------------------------
+                              0.007   slack (MET)
+
+
+Startpoint: lfsr_inst/_777_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: lfsr_inst/_785_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ lfsr_inst/_777_/CK (DFF_X1)
+   3.155    0.008    0.081    0.081 v lfsr_inst/_777_/Q (DFF_X1)
+            0.008    0.000    0.081 v lfsr_inst/_505_/A (INV_X1)
+   1.989    0.007    0.013    0.094 ^ lfsr_inst/_505_/ZN (INV_X1)
+            0.007    0.000    0.094 ^ lfsr_inst/_547_/C2 (AOI211_X1)
+   1.372    0.006    0.014    0.108 v lfsr_inst/_547_/ZN (AOI211_X1)
+            0.006    0.000    0.108 v lfsr_inst/_785_/D (DFF_X1)
+                              0.108   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ lfsr_inst/_785_/CK (DFF_X1)
+                     0.002    0.102   library hold time
+                              0.102   data required time
+---------------------------------------------------------------------------
+                              0.102   data required time
+                             -0.108   data arrival time
+---------------------------------------------------------------------------
+                              0.007   slack (MET)
+
+
+Startpoint: lfsr_inst/_781_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: lfsr_inst/_789_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ lfsr_inst/_781_/CK (DFF_X1)
+   3.155    0.008    0.081    0.081 v lfsr_inst/_781_/Q (DFF_X1)
+            0.008    0.000    0.081 v lfsr_inst/_502_/A (INV_X1)
+   1.989    0.007    0.013    0.094 ^ lfsr_inst/_502_/ZN (INV_X1)
+            0.007    0.000    0.094 ^ lfsr_inst/_555_/C2 (AOI211_X1)
+   1.372    0.006    0.014    0.108 v lfsr_inst/_555_/ZN (AOI211_X1)
+            0.006    0.000    0.108 v lfsr_inst/_789_/D (DFF_X1)
+                              0.108   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ lfsr_inst/_789_/CK (DFF_X1)
+                     0.002    0.102   library hold time
+                              0.102   data required time
+---------------------------------------------------------------------------
+                              0.102   data required time
+                             -0.108   data arrival time
+---------------------------------------------------------------------------
+                              0.007   slack (MET)
+
+
+Startpoint: lfsr_inst/_787_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: lfsr_inst/_795_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ lfsr_inst/_787_/CK (DFF_X1)
+   3.155    0.008    0.081    0.081 v lfsr_inst/_787_/Q (DFF_X1)
+            0.008    0.000    0.081 v lfsr_inst/_500_/A (INV_X1)
+   1.989    0.007    0.013    0.094 ^ lfsr_inst/_500_/ZN (INV_X1)
+            0.007    0.000    0.094 ^ lfsr_inst/_567_/C2 (AOI211_X1)
+   1.372    0.006    0.014    0.108 v lfsr_inst/_567_/ZN (AOI211_X1)
+            0.006    0.000    0.108 v lfsr_inst/_795_/D (DFF_X1)
+                              0.108   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.100    0.100   clock uncertainty
+                     0.000    0.100   clock reconvergence pessimism
+                              0.100 ^ lfsr_inst/_795_/CK (DFF_X1)
+                     0.002    0.102   library hold time
+                              0.102   data required time
+---------------------------------------------------------------------------
+                              0.102   data required time
+                             -0.108   data arrival time
+---------------------------------------------------------------------------
+                              0.007   slack (MET)
+
+

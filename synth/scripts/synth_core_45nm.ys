@@ -1,0 +1,45 @@
+# ==============================================================================
+# Yosys Synthesis Script: RV32IM CPU Core (Nangate 45nm Open Cell Library)
+# ==============================================================================
+
+# 1. Read Verilog Design Files
+read_verilog -sv rtl/phase1_single_cycle/core/control_unit.v
+read_verilog -sv rtl/phase1_single_cycle/core/alu_control.v
+read_verilog -sv rtl/phase1_single_cycle/utils/alu.v
+read_verilog -sv rtl/phase1_single_cycle/utils/register_file.v
+read_verilog -sv rtl/phase1_single_cycle/utils/imm_gen.v
+read_verilog -sv rtl/phase2_pipeline/core/pipe_reg_IF_ID.v
+read_verilog -sv rtl/phase2_pipeline/core/pipe_reg_ID_EX.v
+read_verilog -sv rtl/phase2_pipeline/core/pipe_reg_EX_MEM.v
+read_verilog -sv rtl/phase2_pipeline/core/pipe_reg_MEM_WB.v
+read_verilog -sv rtl/phase2_pipeline/hazard/hazard_unit.v
+read_verilog -sv rtl/phase2_pipeline/hazard/forwarding_unit.v
+read_verilog -sv rtl/phase3_mext/multiplier.v
+read_verilog -sv rtl/phase3_mext/divider.v
+read_verilog -sv rtl/phase4_secure/riscv_core_bus.v
+
+# 2. Elaborate Design Hierarchy
+hierarchy -check -top riscv_core_bus
+
+# 3. High-level Synthesis & Optimizations
+proc
+opt
+fsm
+opt
+memory
+opt_clean
+
+# 4. Tech mapping of arithmetic and logic
+techmap
+opt
+
+# 5. Technology Mapping to Nangate 45nm Standard Cells
+dfflibmap -liberty synth/lib/NangateOpenCellLibrary_typical.lib
+abc -liberty synth/lib/NangateOpenCellLibrary_typical.lib
+opt_clean -purge
+
+# 6. Print Area / Gate Count Statistics
+stat -liberty synth/lib/NangateOpenCellLibrary_typical.lib
+
+# 7. Write Gate-Level Netlist for STA & Simulation
+write_verilog -noattr -noexpr synth/reports/riscv_core_bus_45nm_netlist.v

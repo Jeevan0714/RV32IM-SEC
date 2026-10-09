@@ -1,0 +1,32 @@
+# ==============================================================================
+# Yosys Synthesis Script: Memory Scrambler Engine (Nangate 45nm Open Cell Library)
+# ==============================================================================
+
+# 1. Read Verilog Design Files
+read_verilog -sv rtl/phase4_secure/mem_scrambler.v
+
+# 2. Elaborate Design Hierarchy
+hierarchy -check -top mem_scrambler
+
+# 3. High-level Synthesis & Optimizations
+proc
+opt
+fsm
+opt
+memory
+opt_clean
+
+# 4. Tech mapping of arithmetic and logic
+techmap
+opt
+
+# 5. Technology Mapping to Nangate 45nm Standard Cells
+dfflibmap -liberty synth/lib/NangateOpenCellLibrary_typical.lib
+abc -liberty synth/lib/NangateOpenCellLibrary_typical.lib
+opt_clean -purge
+
+# 6. Print Area / Gate Count Statistics
+stat -liberty synth/lib/NangateOpenCellLibrary_typical.lib
+
+# 7. Write Gate-Level Netlist for STA & Simulation
+write_verilog -noattr -noexpr synth/reports/mem_scrambler_45nm_netlist.v

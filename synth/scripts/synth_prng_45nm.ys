@@ -1,0 +1,37 @@
+# ==============================================================================
+# Yosys Synthesis Script: Grain-128 PRNG (Nangate 45nm Open Cell Library)
+# ==============================================================================
+
+# 1. Read Verilog Design Files
+read_verilog -sv rtl/phase4_secure/LFSR.v
+read_verilog -sv rtl/phase4_secure/NFSR.v
+read_verilog -sv rtl/phase4_secure/keystream.v
+read_verilog -sv rtl/phase4_secure/encrypt.v
+read_verilog -sv rtl/phase4_secure/decrypt.v
+read_verilog -sv rtl/phase4_secure/lfsr_nfsr_top.v
+
+# 2. Elaborate Design Hierarchy
+hierarchy -check -top lfsr_nfsr_top
+
+# 3. High-level Synthesis & Optimizations
+proc
+opt
+fsm
+opt
+memory
+opt_clean
+
+# 4. Tech mapping of arithmetic and logic
+techmap
+opt
+
+# 5. Technology Mapping to Nangate 45nm Standard Cells
+dfflibmap -liberty synth/lib/NangateOpenCellLibrary_typical.lib
+abc -liberty synth/lib/NangateOpenCellLibrary_typical.lib
+opt_clean -purge
+
+# 6. Print Area / Gate Count Statistics
+stat -liberty synth/lib/NangateOpenCellLibrary_typical.lib
+
+# 7. Write Gate-Level Netlist for STA & Simulation
+write_verilog -noattr -noexpr synth/reports/lfsr_nfsr_top_45nm_netlist.v

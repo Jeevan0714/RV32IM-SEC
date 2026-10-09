@@ -1,0 +1,39 @@
+# ==============================================================================
+# Yosys Synthesis Script: Grain-128 PRNG + Memory Scrambler Subsystem (Sky130nm)
+# ==============================================================================
+
+# 1. Read Verilog Design Files
+read_verilog -sv rtl/phase4_secure/LFSR.v
+read_verilog -sv rtl/phase4_secure/NFSR.v
+read_verilog -sv rtl/phase4_secure/keystream.v
+read_verilog -sv rtl/phase4_secure/encrypt.v
+read_verilog -sv rtl/phase4_secure/decrypt.v
+read_verilog -sv rtl/phase4_secure/lfsr_nfsr_top.v
+read_verilog -sv rtl/phase4_secure/prng_wrapper.v
+read_verilog -sv rtl/phase4_secure/mem_scrambler.v
+
+# 2. Elaborate Design Hierarchy
+hierarchy -check -top mem_scrambler
+
+# 3. High-level Synthesis & Optimizations
+proc
+opt
+fsm
+opt
+memory
+opt_clean
+
+# 4. Tech mapping of arithmetic and logic
+techmap
+opt
+
+# 5. Technology Mapping to Sky130 Standard Cells
+dfflibmap -liberty synth/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty synth/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+opt_clean -purge
+
+# 6. Print Area / Gate Count Statistics
+stat -liberty synth/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 7. Write Gate-Level Netlist for STA & Simulation
+write_verilog -noattr -noexpr synth/reports/mem_scrambler_netlist.v

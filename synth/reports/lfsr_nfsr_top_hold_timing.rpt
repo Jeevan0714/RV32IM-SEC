@@ -1,0 +1,150 @@
+Startpoint: lfsr_inst/_513_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: lfsr_inst/_521_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ lfsr_inst/_513_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.005    0.060    0.294    0.294 ^ lfsr_inst/_513_/Q (sky130_fd_sc_hd__dfxtp_1)
+            0.060    0.003    0.297 ^ lfsr_inst/_275_/A2 (sky130_fd_sc_hd__a211o_1)
+   0.002    0.033    0.109    0.406 ^ lfsr_inst/_275_/X (sky130_fd_sc_hd__a211o_1)
+            0.033    0.003    0.409 ^ lfsr_inst/_521_/D (sky130_fd_sc_hd__dfxtp_1)
+                              0.409   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.200    0.200   clock uncertainty
+                     0.000    0.200   clock reconvergence pessimism
+                              0.200 ^ lfsr_inst/_521_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                    -0.035    0.165   library hold time
+                              0.165   data required time
+---------------------------------------------------------------------------
+                              0.165   data required time
+                             -0.409   data arrival time
+---------------------------------------------------------------------------
+                              0.244   slack (MET)
+
+
+Startpoint: lfsr_inst/_515_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: lfsr_inst/_523_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ lfsr_inst/_515_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.005    0.060    0.294    0.294 ^ lfsr_inst/_515_/Q (sky130_fd_sc_hd__dfxtp_1)
+            0.060    0.003    0.297 ^ lfsr_inst/_279_/A2 (sky130_fd_sc_hd__a211o_1)
+   0.002    0.033    0.109    0.406 ^ lfsr_inst/_279_/X (sky130_fd_sc_hd__a211o_1)
+            0.033    0.003    0.409 ^ lfsr_inst/_523_/D (sky130_fd_sc_hd__dfxtp_1)
+                              0.409   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.200    0.200   clock uncertainty
+                     0.000    0.200   clock reconvergence pessimism
+                              0.200 ^ lfsr_inst/_523_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                    -0.035    0.165   library hold time
+                              0.165   data required time
+---------------------------------------------------------------------------
+                              0.165   data required time
+                             -0.409   data arrival time
+---------------------------------------------------------------------------
+                              0.244   slack (MET)
+
+
+Startpoint: lfsr_inst/_519_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: lfsr_inst/_527_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ lfsr_inst/_519_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.005    0.060    0.294    0.294 ^ lfsr_inst/_519_/Q (sky130_fd_sc_hd__dfxtp_1)
+            0.060    0.003    0.297 ^ lfsr_inst/_287_/A2 (sky130_fd_sc_hd__a211o_1)
+   0.002    0.033    0.109    0.406 ^ lfsr_inst/_287_/X (sky130_fd_sc_hd__a211o_1)
+            0.033    0.003    0.409 ^ lfsr_inst/_527_/D (sky130_fd_sc_hd__dfxtp_1)
+                              0.409   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.200    0.200   clock uncertainty
+                     0.000    0.200   clock reconvergence pessimism
+                              0.200 ^ lfsr_inst/_527_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                    -0.035    0.165   library hold time
+                              0.165   data required time
+---------------------------------------------------------------------------
+                              0.165   data required time
+                             -0.409   data arrival time
+---------------------------------------------------------------------------
+                              0.244   slack (MET)
+
+
+Startpoint: lfsr_inst/_520_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: lfsr_inst/_528_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ lfsr_inst/_520_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.005    0.060    0.294    0.294 ^ lfsr_inst/_520_/Q (sky130_fd_sc_hd__dfxtp_1)
+            0.060    0.003    0.297 ^ lfsr_inst/_289_/A2 (sky130_fd_sc_hd__a211o_1)
+   0.002    0.033    0.109    0.406 ^ lfsr_inst/_289_/X (sky130_fd_sc_hd__a211o_1)
+            0.033    0.003    0.409 ^ lfsr_inst/_528_/D (sky130_fd_sc_hd__dfxtp_1)
+                              0.409   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.200    0.200   clock uncertainty
+                     0.000    0.200   clock reconvergence pessimism
+                              0.200 ^ lfsr_inst/_528_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                    -0.035    0.165   library hold time
+                              0.165   data required time
+---------------------------------------------------------------------------
+                              0.165   data required time
+                             -0.409   data arrival time
+---------------------------------------------------------------------------
+                              0.244   slack (MET)
+
+
+Startpoint: lfsr_inst/_523_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: lfsr_inst/_531_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ lfsr_inst/_523_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.005    0.060    0.294    0.294 ^ lfsr_inst/_523_/Q (sky130_fd_sc_hd__dfxtp_1)
+            0.060    0.003    0.297 ^ lfsr_inst/_295_/A2 (sky130_fd_sc_hd__a211o_1)
+   0.002    0.033    0.109    0.406 ^ lfsr_inst/_295_/X (sky130_fd_sc_hd__a211o_1)
+            0.033    0.003    0.409 ^ lfsr_inst/_531_/D (sky130_fd_sc_hd__dfxtp_1)
+                              0.409   data arrival time
+
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.200    0.200   clock uncertainty
+                     0.000    0.200   clock reconvergence pessimism
+                              0.200 ^ lfsr_inst/_531_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                    -0.035    0.165   library hold time
+                              0.165   data required time
+---------------------------------------------------------------------------
+                              0.165   data required time
+                             -0.409   data arrival time
+---------------------------------------------------------------------------
+                              0.244   slack (MET)
+
+

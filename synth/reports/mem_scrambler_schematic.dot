@@ -1,0 +1,18 @@
+digraph "mem_scrambler" {
+label="mem_scrambler";
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="cpu_rd_data", color="black", fontcolor="black"];
+n2 [ shape=octagon, label="cpu_wr_data", color="black", fontcolor="black"];
+n3 [ shape=octagon, label="keystream", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="ram_rd_data", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="ram_wr_data", color="black", fontcolor="black"];
+c9 [ shape=record, label="{{<p6> A|<p7> B}|$1\n$xor|{<p8> Y}}",  ];
+c10 [ shape=record, label="{{<p6> A|<p7> B}|$2\n$xor|{<p8> Y}}",  ];
+c10:p8:e -> n1:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n2:e -> c9:p6:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3:e -> c10:p7:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n3:e -> c9:p7:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n4:e -> c10:p6:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c9:p8:e -> n5:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+}
