@@ -169,7 +169,7 @@ To simulate and verify this project on Linux (Ubuntu/Debian), install the requir
 
 ```bash
 sudo apt update
-sudo apt install -y iverilog gtkwave verilator yosys klayout \
+sudo apt install -y iverilog gtkwave verilator yosys \
                     gcc-riscv64-unknown-elf binutils-riscv64-unknown-elf
 ```
 

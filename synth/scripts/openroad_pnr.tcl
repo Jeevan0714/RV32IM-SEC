@@ -39,8 +39,30 @@ make_tracks
 puts "=== 3. Placing IO Pins ==="
 place_pins -hor_layers metal3 -ver_layers metal2
 
-# 7. Global Placement
-puts "=== 4. Running Global Placement ==="
+# 7. Power Distribution Network (PDN) Generation
+puts "=== 4. Synthesizing Power Distribution Network (VDD / VSS) ==="
+add_global_connection -net VDD -pin_pattern {^VDD$} -power
+add_global_connection -net VSS -pin_pattern {^VSS$} -ground
+global_connect
+
+set_voltage_domain -name CORE -power VDD -ground VSS
+define_pdn_grid -name stdcell_grid -voltage_domain CORE -starts_with POWER
+
+# Standard cell power followers on metal1
+add_pdn_stripe -grid stdcell_grid -layer metal1 -width 0.17 -followpins -starts_with POWER
+
+# Vertical power straps on metal4 and horizontal power straps on metal5
+add_pdn_stripe -grid stdcell_grid -layer metal4 -width 0.93 -pitch 20.0 -offset 2.0 -starts_with POWER
+add_pdn_stripe -grid stdcell_grid -layer metal5 -width 0.93 -pitch 20.0 -offset 2.0 -starts_with POWER
+
+# Vias connecting rails and straps
+add_pdn_connect -grid stdcell_grid -layers {metal1 metal4}
+add_pdn_connect -grid stdcell_grid -layers {metal4 metal5}
+
+pdngen
+
+# 8. Global Placement
+puts "=== 5. Running Global Placement ==="
 global_placement -density 0.60
 
 # 8. Detailed Placement (Legalization onto standard cell grid)

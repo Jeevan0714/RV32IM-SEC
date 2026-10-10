@@ -226,7 +226,7 @@ riscv64-unknown-elf-objdump -d prog.elf
 | OpenSTA | Static Timing Analysis — checks if design meets target clock | included |
 | OpenROAD | Floorplan + Place + Route — bundled inside OpenLane | included |
 | Magic | Layout DRC check — bundled inside OpenLane | included |
-| KLayout | View and inspect the final GDS-II file | `sudo apt install klayout` |
+| OpenROAD GUI | Interactive ASIC physical layout inspector | bundled inside OpenLane (`bash openroad_gui.sh`) |
 | Nangate 45nm PDK | 45nm Open Cell Library for synthesis and physical design | included in `synth/lib/` |
 
 ```bash
@@ -234,18 +234,18 @@ riscv64-unknown-elf-objdump -d prog.elf
 make synth_45nm
 make sta_45nm
 
-# Or run the complete automated physical design flow (OpenROAD + KLayout)
-pwsh ./run_45nm_flow.ps1
+# Or run the complete automated physical design flow (Yosys + OpenSTA + OpenROAD)
+bash run_45nm_flow.sh
 
-# View the final placed & routed layout
-klayout -z -r synth/scripts/view_gui.py
+# View the final placed & routed layout in OpenROAD GUI
+bash openroad_gui.sh
 ```
 
-> The complete ASIC flow targets the **Nangate 45nm Open Cell Library**, achieving 100+ MHz performance and an ultra-compact ~0.022 mm² core footprint. Layout can also be viewed via `layout_viewer.html`.
+> The complete ASIC flow targets the **Nangate 45nm Open Cell Library**, achieving 100+ MHz performance and an ultra-compact ~0.022 mm² core footprint. Layout can also be viewed via `layout_viewer.html` or OpenROAD GUI (`bash openroad_gui.sh`).
 
 ### Quick Install — Everything for Phases 1–4
 
 ```bash
-sudo apt install iverilog gtkwave verilator yosys klayout \
+sudo apt install iverilog gtkwave verilator yosys \
                  gcc-riscv64-unknown-elf binutils-riscv64-unknown-elf
 ```
