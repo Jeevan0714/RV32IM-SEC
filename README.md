@@ -4,7 +4,7 @@
 [![ISA: RV32IM](https://img.shields.io/badge/ISA-RV32IM-red.svg)](https://riscv.org/)
 [![Toolchain: Icarus_Verilog](https://img.shields.io/badge/Simulator-Icarus_Verilog-green.svg)](http://iverilog.icarus.com/)
 [![Waveform: GTKWave](https://img.shields.io/badge/Waveform-GTKWave-orange.svg)](http://gtkwave.sourceforge.net/)
-[![Target PDK: SkyWater_130nm](https://img.shields.io/badge/PDK-SkyWater_130nm-purple.svg)](https://github.com/google/skywater-pdk)
+[![Target PDK: Nangate_45nm](https://img.shields.io/badge/PDK-Nangate_45nm-purple.svg)](synth/lib/NangateOpenCellLibrary_typical.lib)
 
 **RV32IM-SEC** is an open-source, 32-bit **Secure IoT Processor System-on-Chip (SoC)** implemented in Verilog HDL. It combines a 5-stage pipelined **RV32IM RISC-V CPU core** with a hardware **Memory Scrambling Engine** powered by an integrated **Grain-128 Pseudo-Random Number Generator (PRNG)**.
 
@@ -224,9 +224,9 @@ make clean
 
 ---
 
-## 🔬 ASIC Synthesis & PPA Analysis (45nm & Sky130 PDKs)
+## 🔬 ASIC Synthesis & PPA Analysis (Nangate 45nm PDK)
 
-The complete SoC and its constituent subsystems have been synthesized and analyzed using **Yosys** (logic synthesis & tech mapping) and **OpenSTA** (Static Timing Analysis) against both **Nangate 45nm Open Cell Library** (target technology) and **SkyWater 130nm (`sky130_fd_sc_hd`)**.
+The complete SoC and its constituent subsystems have been synthesized and analyzed using **Yosys** (logic synthesis & tech mapping) and **OpenSTA** (Static Timing Analysis) targeting the **Nangate 45nm Open Cell Library**.
 
 ### 📊 45nm Technology PPA Summary (Nangate 45nm Open Cell Library)
 
@@ -237,17 +237,7 @@ The complete SoC and its constituent subsystems have been synthesized and analyz
 | **Memory Scrambler XOR Layer** | 64 `XOR2_X1` cells | **102.14 $\mu m^2$** | 0.00 $\mu m^2$ (0.0%) | < 0.01 mW | Combinational (< 0.1 ns) |
 | **Total Secure Core Logic** | ~5,300+ gates | **22,391.08 $\mu m^2$ (~0.022 $mm^2$)** | 5,209.35 $\mu m^2$ | **~5.63 mW** | **100 MHz Target Met** |
 
----
-
-### 🌐 Cross-PDK PPA Comparison (45nm vs. 130nm)
-
-| Metric | Nangate 45nm PDK | SkyWater 130nm PDK | Scaling Improvement |
-| :--- | :--- | :--- | :--- |
-| **Total Core Area** | **0.022 $mm^2$** ($22,391\ \mu m^2$) | **0.106 $mm^2$** ($106,346\ \mu m^2$) | **~4.75× Area Reduction** |
-| **Target Operating Clock** | **100 MHz** (Slack: +2.48 ns) | **33–50 MHz** | **~3× Speedup** |
-| **Scrambler Area Overhead** | **2,442.94 $\mu m^2$** (10.9%) | **11,986.50 $\mu m^2$** (11.2%) | Consistent ~11% area overhead |
-
-> **Key Architectural Conclusion:** In 45nm technology, the entire secure processor core occupies a miniscule **$0.022\text{ mm}^2$ footprint** and achieves **135 MHz maximum frequency**, proving that continuous hardware-level memory scrambling is highly practical for resource-constrained secure IoT silicon.
+> **Key Architectural Conclusion:** In 45nm technology, the entire secure processor core occupies a minuscule **$0.022\text{ mm}^2$ footprint** and achieves **135 MHz maximum frequency**, proving that continuous hardware-level memory scrambling is highly practical for resource-constrained secure IoT silicon. Physical layout DEF and GDS-II streams can be interactively inspected using [layout_viewer.html](file:///home/jeevan/Desktop/my%20projects/RV32IM-SEC/layout_viewer.html).
 
 ---
 

@@ -160,7 +160,7 @@ wave_p4:
 clean:
 	rm -rf sim/phase1/*.vcd sim/phase1/sim_* sim/phase2/*.vcd sim/phase2/sim_* sim/phase3/*.vcd sim/phase3/sim_* sim/phase4/*.vcd sim/phase4/sim_* program.hex sim/*.o sim/*.hex synth/reports/*_netlist.v synth/reports/*.rpt synth/reports/*.log
 
-# ── ASIC Synthesis & Timing Analysis (45nm & Sky130) ─────────
+# ── ASIC Synthesis & Timing Analysis (Nangate 45nm) ─────────
 synth_45nm:
 	@echo "━━━ Synthesizing RV32IM on Nangate 45nm PDK ━━━"
 	yosys -s synth/scripts/synth_core_45nm.ys | tee synth/reports/riscv_core_bus_45nm_synth.log
@@ -171,21 +171,8 @@ sta_45nm: synth_45nm
 	export TOP_MODULE=riscv_core_bus && sta synth/scripts/sta_45nm.tcl
 	export TOP_MODULE=lfsr_nfsr_top && sta synth/scripts/sta_45nm.tcl
 
-synth_core:
-	@echo "━━━ Synthesizing RV32IM CPU Core on Sky130 PDK ━━━"
-	yosys -s synth/scripts/synth_core.ys | tee synth/reports/riscv_core_bus_synth.log
-
-synth_prng:
-	@echo "━━━ Synthesizing Grain-128 PRNG on Sky130 PDK ━━━"
-	yosys -s synth/scripts/synth_prng.ys | tee synth/reports/lfsr_nfsr_top_synth.log
-
-sta_core: synth_core
-	@echo "━━━ Running Static Timing Analysis on RV32IM CPU Core ━━━"
-	export TOP_MODULE=riscv_core_bus && sta synth/scripts/sta.tcl
-
-sta_prng: synth_prng
-	@echo "━━━ Running Static Timing Analysis on Grain-128 PRNG ━━━"
-	export TOP_MODULE=lfsr_nfsr_top && sta synth/scripts/sta.tcl
+synth: synth_45nm
+sta: sta_45nm
 
 # Help
 help:
@@ -196,10 +183,8 @@ help:
 	@echo "  sim_p4        — Compile and simulate Phase 4 Secure SoC"
 	@echo "  synth_45nm    — Synthesize design targeting Nangate 45nm PDK"
 	@echo "  sta_45nm      — Run Static Timing Analysis on 45nm (100 MHz target)"
-	@echo "  synth_core    — Synthesize RV32IM Core on Sky130 PDK"
-	@echo "  synth_prng    — Synthesize Grain-128 PRNG on Sky130 PDK"
-	@echo "  sta_core      — Run Static Timing Analysis on Core using OpenSTA"
-	@echo "  sta_prng      — Run Static Timing Analysis on PRNG using OpenSTA"
+	@echo "  synth         — Alias for synth_45nm"
+	@echo "  sta           — Alias for sta_45nm"
 	@echo "  hex           — Assemble test_basic.s to program.hex"
 	@echo "  wave_p1       — Open Phase 1 waveform in GTKWave"
 	@echo "  wave_p2       — Open Phase 2 waveform in GTKWave"
