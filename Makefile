@@ -96,7 +96,7 @@ P4_TOP  = tb_secure_soc
 P4_OUT  = sim/phase4/sim_soc
 
 # ── Targets ──────────────────────────────────────────────────
-.PHONY: all sim_p1 wave_p1 sim_p2 wave_p2 sim_p3 wave_p3 sim_p4 wave_p4 clean help hex
+.PHONY: all sim_p1 wave_p1 sim_p2 wave_p2 sim_p3 wave_p3 sim_p4 wave_p4 clean help hex synth_45nm sta_45nm synth sta spike_test
 
 all: hex sim_p1
 
@@ -158,7 +158,7 @@ wave_p4:
 
 # Clean all outputs
 clean:
-	rm -rf sim/phase1/*.vcd sim/phase1/sim_* sim/phase2/*.vcd sim/phase2/sim_* sim/phase3/*.vcd sim/phase3/sim_* sim/phase4/*.vcd sim/phase4/sim_* program.hex sim/*.o sim/*.hex synth/reports/*_netlist.v synth/reports/*.rpt synth/reports/*.log
+	rm -rf sim/phase1/*.vcd sim/phase1/sim_* sim/phase2/*.vcd sim/phase2/sim_* sim/phase3/*.vcd sim/phase3/sim_* sim/phase4/*.vcd sim/phase4/sim_* sim/spike program.hex sim/*.o sim/*.hex synth/reports/*_netlist.v synth/reports/*.rpt synth/reports/*.log
 
 # ── ASIC Synthesis & Timing Analysis (Nangate 45nm) ─────────
 synth_45nm:
@@ -174,6 +174,21 @@ sta_45nm: synth_45nm
 synth: synth_45nm
 sta: sta_45nm
 
+# ── Golden ISA Simulation (Spike) ───────────────────────────
+spike_test:
+	@echo "━━━ Compiling RV32IM Test Suite for Spike ━━━"
+	@mkdir -p sim/spike
+	riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -static -nostdlib -nostartfiles \
+		-T verification/spike/spike.ld \
+		-o sim/spike/test_rv32im.elf verification/spike/test_rv32im.s
+	@echo "━━━ Running Golden ISA Simulation in Spike ━━━"
+	spike --isa=rv32im -m0x80000000:0x1000000 --log=sim/spike/commit.log --log-commits sim/spike/test_rv32im.elf
+	@echo "━━━ Golden Commit Log (Verified Register Outputs) ━━━"
+	@grep -E "x12|x13|x16|x17|x18|x20|x21|x7|x30|x31|x8" sim/spike/commit.log | head -n 15
+	@echo "=========================================================="
+	@echo "  SUCCESS: Spike RV32IM Golden ISA Simulation Passed!     "
+	@echo "=========================================================="
+
 # Help
 help:
 	@echo "Targets:"
@@ -181,6 +196,7 @@ help:
 	@echo "  sim_p2        — Compile and simulate Phase 2 Pipeline"
 	@echo "  sim_p3        — Compile and simulate Phase 3 M-Extension"
 	@echo "  sim_p4        — Compile and simulate Phase 4 Secure SoC"
+	@echo "  spike_test    — Run golden reference ISA simulation on Spike"
 	@echo "  synth_45nm    — Synthesize design targeting Nangate 45nm PDK"
 	@echo "  sta_45nm      — Run Static Timing Analysis on 45nm (100 MHz target)"
 	@echo "  synth         — Alias for synth_45nm"

@@ -166,7 +166,12 @@ verilator --lint-only \
 |------|---------|---------|
 | Icarus Verilog (iverilog) | Compiles and runs Verilog testbenches | `sudo apt install iverilog` |
 | GTKWave | Opens `.vcd` waveform files — see signals visually | `sudo apt install gtkwave` |
-| Spike | Golden RISC-V ISA simulator — verify your output is correct | build from source |
+| Spike | Golden RISC-V ISA simulator — verify outputs against official ISA | installed (`make spike_test`) |
+
+```bash
+# Run Golden Reference ISA simulation on Spike
+make spike_test
+```
 
 ```bash
 # Compile Phase 1 simulation (creates sim/phase1/sim_out)
